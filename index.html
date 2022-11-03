@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<style>
+    table, th, td {
+        border:1px solid black;
+    }
+</style>
+
+<table id="table">
+    <colgroup>
+        <col style="background-color:red">
+        <col style="background-color:yellow">
+        <col style="background-color:turquoise">
+    </colgroup>
+    <tr>
+        <th>Birinci</th>
+        <th>İkinci</th>
+        <th>Üçüncü</th>
+        <th>Dördüncü</th>
+        <th>Beşinci</th>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><input type="button" value="1 Değiştir"/></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><input type="button" value="2 Değiştir"/></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><input type="button" value="3 Değiştir"/></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><input type="button" value="4 Değiştir"/></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><input type="button" value="5 Değiştir"/></td>
+    </tr>
+</table>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+        integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    const all_tr = $('tr');
+    $('td input[type="button"]').on('click', function () {
+        all_tr.removeClass('selected');
+        $(this).closest('tr').addClass('selected');
+    });
+</script>
+<script>
+
+    const array = [["A1", "B1", "C1", "D1", "E1"],
+            ["A2", "B2", "C2", "D2", "E2"],
+            ["A3", "B3", "C3", "D3", "E3"],
+            ["A4", "B4", "C4", "D4", "E4"],
+            ["A5", "B5", "C5", "D5", "E5"],],
+        table = document.getElementById("table");
+    for(let i = 1; i < table.rows.length; i++)
+    {
+        // cells
+        for(let j = 0; j < table.rows[i].cells.length-1; j++)
+        {
+            table.rows[i].cells[j].innerHTML = array[i - 1][j];
+        }
+    }
+</script>
+</body>
+</html>
